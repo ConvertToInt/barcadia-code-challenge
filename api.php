@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'D' => 500, 
         'CD' => 400, 
         'C' => 100, 
-        'XC' => 90,
+        'XC' => 90, 
         'L' => 50, 
         'XL' => 40, 
         'X' => 10, 
@@ -19,23 +19,36 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'I' => 1
     ];
     
-    function convertToRomanNumerals($numeralsMap, $inputValue) {
+    function convertIntToNumerals($numeralsMap, $inputValue) {
         $inputValueInt = intval($inputValue);
         $result = '';
 
-        foreach ($numeralsMap as $numeral => $count) {
-            $matches = intval($inputValueInt / $count);
+        foreach ($numeralsMap as $numeral => $number) {
+            $matches = intval($inputValueInt / $number);
             $result .= str_repeat($numeral, $matches);
-            $inputValueInt = $inputValueInt % $count;
+            $inputValueInt = $inputValueInt % $number;
+        }
+
+        return $result;
+    }
+
+    function convertNumeralsToInt($numeralsMap, $inputValue) {
+        $result = 0;
+
+        foreach ($numeralsMap as $key => $value) {
+            while (strpos($inputValue, $key) === 0) {
+                $result += $value;
+                $inputValue = substr($inputValue, strlen($key));
+            }
         }
 
         return $result;
     }
 
     if (is_numeric($inputValue)) {
-        $convertedValue = convertToRomanNumerals($numeralsMap, $inputValue);
+        $convertedValue = convertIntToNumerals($numeralsMap, $inputValue);
     } elseif (is_string($inputValue)) {
-        $convertedValue = 'is string';
+        $convertedValue = convertNumeralsToInt($numeralsMap, $inputValue);
     }
 
     echo json_encode(['convertedValue' => $convertedValue]);
