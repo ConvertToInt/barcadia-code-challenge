@@ -3,26 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Barcadia Conversion Application</title>
+    <title>Barcadia | Roman Numeral Converter</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
 </head>
 <body>
+    <div class="flex items-center justify-center">   
+        <div class="app-container w-full max-w-md p-8 shadow-md rounded">
 
-<div id="app" class="content" align="center">
-    <h1>Hey!</h1>
-    <h3>{{title}}</h3>
-</div>
-    
-<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-<script>
-    const TestApp = {
-        data(){
-            return {
-                title: "Hello from vjs3",
-            }
-        }
-    }
+            <h1 class="text-2xl font-bold mb-6 text-center">Roman Numerals Converter</h1>
+            <input" type="number" class="w-full p-2 border rounded mb-4" placeholder="Enter a number or numeral">
+            <button class="w-full bg-blue-500 text-white p-2 rounded">Convert</button>
+            
+        </div>
+    </div>
 
-    Vue.createApp(TestApp).mount('#app');
-</script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
 </body>
 </html>
