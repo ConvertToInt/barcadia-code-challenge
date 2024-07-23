@@ -2,7 +2,7 @@ new Vue({
   el: "#barcadia-app",
   data: {
     inputValue: "",
-    conversionResult: "",
+    convertedValue: "",
   },
   methods: {
     async convertValue() {
@@ -15,7 +15,7 @@ new Vue({
       });
 
       const data = await response.json();
-      this.conversionResult = data.conversionResult;
+      this.convertedValue = data.convertedValue;
     },
   },
 });

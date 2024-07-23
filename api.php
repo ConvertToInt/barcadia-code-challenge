@@ -1,10 +1,13 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = json_decode(file_get_contents('php://input'), true);
+    $inputValue = $data['inputValue'];
     
-    if (is_numeric($data['inputValue'])) {
-        echo json_encode(['conversionResult' => 'Is number']);
-    } elseif (is_string($data['inputValue'])) {
-        echo json_encode(['conversionResult' => 'Is string']);
+    if (is_numeric($inputValue)) {
+        $convertedValue = 'is int';
+    } elseif (is_string($inputValue)) {
+        $convertedValue = 'is string';
     }
+
+    echo json_encode(['convertedValue' => $convertedValue]);
 }
