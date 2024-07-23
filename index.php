@@ -5,10 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Barcadia | Roman Numeral Converter</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-
+    <link href="assets/app.css" rel="stylesheet">
 </head>
 <body>
-    <div class="flex items-center justify-center">   
+    <div class="flex justify-center mt-14 mb-14">
+        <img src="assets/img/bml-pink.svg" alt="" width="200" height="200">
+    </div>
+
+    <div class="flex items-center justify-center">    
         <div class="app-container w-full max-w-md p-8 shadow-md rounded">
 
             <h1 class="text-2xl font-bold mb-6 text-center">Roman Numerals Converter</h1>
