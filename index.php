@@ -17,7 +17,7 @@
 
             <h1 class="text-2xl font-bold mb-6 text-center">Roman Numerals Converter</h1>
             <input v-model="inputValue" class="w-full p-2 border rounded mb-4" placeholder="Enter a number or numeral">
-            <button @click="convertValue" class="w-full bg-blue-500 text-white p-2 rounded">Convert</button>
+            <button @click="convertValue" class="w-full text-white p-2 rounded convert-btn">Convert</button>
 
             <div v-if="convertedValue" class="mt-4 p-4 bg-green-100 text-green-700 rounded">
                 {{ convertedValue }}

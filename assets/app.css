@@ -1,3 +1,7 @@
 .app-container {
   border-bottom: 8px solid #d2226b;
 }
+
+.convert-btn {
+  background-color: #d2226b;
+}
