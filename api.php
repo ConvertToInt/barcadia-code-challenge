@@ -37,28 +37,46 @@ function convertNumeralsToInt(array $numeralsMap, string $inputValue): int
     return $result;
 }
 
+function dateToRoman(string $date): string 
+{
+    list($day, $month, $year) = explode('-', $date);
+
+    $romanDay = convertIntToNumerals($GLOBALS['numeralsMap'], (int)$day);
+    $romanMonth = convertIntToNumerals($GLOBALS['numeralsMap'], (int)$month);
+    $romanYear = convertIntToNumerals($GLOBALS['numeralsMap'], (int)$year);
+
+    $romanDate = sprintf('%s-%s-%s', $romanDay, $romanMonth, $romanYear);
+
+    return $romanDate;
+}
+
+function romanToDate(string $romanDate): string 
+{
+    list($romanDay, $romanMonth, $romanYear) = explode('-', $romanDate);
+
+    $day = convertNumeralsToInt($GLOBALS['numeralsMap'], $romanDay);
+    $month = convertNumeralsToInt($GLOBALS['numeralsMap'], $romanMonth);
+    $year = convertNumeralsToInt($GLOBALS['numeralsMap'], $romanYear);
+
+    $date = sprintf('%02d-%02d-%04d', $day, $month, $year);
+    
+    return $date;
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = json_decode(file_get_contents('php://input'), true);
-    $inputValue = $data['inputValue'];
+    $inputDate = $data['inputDate'];
 
-    // Determine whether to convert to integer, or to Roman numerals
-    if (is_numeric($inputValue)) {
-        $convertedValue = convertIntToNumerals($numeralsMap, $inputValue);
-    } elseif (is_string($inputValue)) {
-
-        if (preg_match('/[mdclxvi]/', $inputValue)) {
-            echo json_encode(['error' => "Please use capital letters for numerals."]);
-            return;
-        }
-
-        if (preg_match('/[^MDCLXVI]/', $inputValue)) {
-            echo json_encode(['error' => "Roman numerals contains invalid characters."]);
-            return;
-        }
-
-        $convertedValue = convertNumeralsToInt($numeralsMap, $inputValue);
+    // Determine whether input is a date or Roman numerals, then check for DD-MM-YYYY format
+    if (preg_match('/^\d{2}-\d{2}-\d{4}$/', $inputDate)) {
+        $convertedDate = dateToRoman($inputDate);
+    } elseif (preg_match('/^([IVXLCDM]+)-([IVXLCDM]+)-([IVXLCDM]+)$/', $inputDate)) {
+        $convertedDate = romanToDate($inputDate);
+    } else {
+        echo json_encode(['error' => 'Invalid date format.']);
+        return;
     }
 
     // Return the converted input, encoded
-    echo json_encode(['convertedValue' => $convertedValue]);
+    echo json_encode(['convertedDate' => $convertedDate]);
 }
