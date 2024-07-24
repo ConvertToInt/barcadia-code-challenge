@@ -17,11 +17,11 @@
         <div id="barcadia-app" class="app-container w-full max-w-md p-8 shadow-md rounded">
 
             <h1 class="text-2xl font-bold mb-6 text-center">Roman Numerals Converter</h1>
-            <input v-model="inputValue" class="w-full p-2 border rounded mb-4" placeholder="Enter a number or numeral">
-            <button @click="convertValue" class="w-full text-white p-2 rounded convert-btn">Convert</button>
+            <input v-model="inputDate" class="w-full p-2 border rounded mb-4" placeholder="Enter a number or numeral">
+            <button @click="convertDate" class="w-full text-white p-2 rounded convert-btn">Convert</button>
 
-            <div v-if="convertedValue" class="mt-4 p-4 bg-green-100 text-green-700 rounded">
-                {{ convertedValue }}
+            <div v-if="convertedDate" class="mt-4 p-4 bg-green-100 text-green-700 rounded">
+                {{ convertedDate }}
             </div>
 
             <div v-if="errorMsg" class="mt-4 p-4 bg-red-700 text-white rounded">
