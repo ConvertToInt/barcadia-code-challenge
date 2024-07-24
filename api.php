@@ -3,7 +3,8 @@
 // Roman numerals map
 $numeralsMap = ['M' => 1000, 'CM' => 900, 'D' => 500, 'CD' => 400, 'C' => 100, 'XC' => 90, 'L' => 50, 'XL' => 40, 'X' => 10, 'IX' => 9, 'V' => 5, 'IV' => 4, 'I' => 1];
 
-function convertIntToNumerals(array $numeralsMap, int $inputValue): string {
+function convertIntToNumerals(array $numeralsMap, int $inputValue): string 
+{
     $result = '';
     $inputValueInt = intval($inputValue);
 
@@ -19,7 +20,8 @@ function convertIntToNumerals(array $numeralsMap, int $inputValue): string {
     return $result;
 }
 
-function convertNumeralsToInt(array $numeralsMap, string $inputValue): int {
+function convertNumeralsToInt(array $numeralsMap, string $inputValue): int
+{   
     $result = 0;
 
     foreach ($numeralsMap as $numeral => $number) {
@@ -36,17 +38,16 @@ function convertNumeralsToInt(array $numeralsMap, string $inputValue): int {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Decode the request
     $data = json_decode(file_get_contents('php://input'), true);
     $inputValue = $data['inputValue'];
 
-    // Determine whether to convert to integer, or to roman numerals
+    // Determine whether to convert to integer, or to Roman numerals
     if (is_numeric($inputValue)) {
         $convertedValue = convertIntToNumerals($numeralsMap, $inputValue);
     } elseif (is_string($inputValue)) {
         $convertedValue = convertNumeralsToInt($numeralsMap, $inputValue);
     }
 
-    // Return the encoded converted answer
+    // Return the converted input, encoded
     echo json_encode(['convertedValue' => $convertedValue]);
 }
