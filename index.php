@@ -14,7 +14,7 @@
     </div>
 
     <div class="flex items-center justify-center">    
-        <div id="barcadia-app" class="app-container w-full max-w-md p-8 shadow-md rounded">
+        <div id="barcadia-app" class="app-container w-full max-w-md p-8 shadow-2xl rounded">
 
             <h1 class="text-2xl font-bold mb-6 text-center">Roman Date Converter</h1>
             <input v-model="inputDate" class="w-full p-2 border rounded mb-4" placeholder="DD-MM-YYYY">
