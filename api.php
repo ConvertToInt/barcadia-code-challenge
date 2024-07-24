@@ -45,6 +45,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (is_numeric($inputValue)) {
         $convertedValue = convertIntToNumerals($numeralsMap, $inputValue);
     } elseif (is_string($inputValue)) {
+
+        if (preg_match('/[mdclxvi]/', $inputValue)) {
+            echo json_encode(['error' => "Please use capital letters for numerals."]);
+            return;
+        }
+
+        if (preg_match('/[^MDCLXVI]/', $inputValue)) {
+            echo json_encode(['error' => "Roman numerals contains invalid characters."]);
+            return;
+        }
+
         $convertedValue = convertNumeralsToInt($numeralsMap, $inputValue);
     }
 

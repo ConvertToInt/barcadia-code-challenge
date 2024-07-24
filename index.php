@@ -23,7 +23,11 @@
             <div v-if="convertedValue" class="mt-4 p-4 bg-green-100 text-green-700 rounded">
                 {{ convertedValue }}
             </div>
-            
+
+            <div v-if="errorMsg" class="mt-4 p-4 bg-red-700 text-white rounded">
+                {{ errorMsg }}
+            </div>
+
         </div>
     </div>
 
