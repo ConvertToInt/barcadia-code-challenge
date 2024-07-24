@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Barcadia | Roman Numeral Converter</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="/assets/img/bm-favicon.ico" rel="icon">
     <link href="assets/app.css" rel="stylesheet">
 </head>
 <body>
