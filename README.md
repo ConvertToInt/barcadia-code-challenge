@@ -6,12 +6,18 @@ value as a date.
 
 The application should:
 
-• Be a web application.
+<ol>
+    <li>Be a web application</li>
+    <li>Be built using Laravel, Vue and Tailwind</li>
+    <li></li>
+</ol>
+Be a web application.
 • Be built using Laravel, Vue and Tailwind.
 • Accept any date in DD-MM-YYYY format or the corresponding roman numerals and display the input accordingly.
 • Include documentation on how to use
 • Be compatible with PHP 8+
 
+<img width="886" alt="Screenshot 2024-07-24 at 16 10 17" src="https://github.com/user-attachments/assets/b013cac2-0b8b-488b-9cce-4b93d168caac">
 
 ## Getting started
 
