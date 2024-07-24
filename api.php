@@ -77,6 +77,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         return;
     }
 
-    // Return the converted input, encoded
+    // Return the converted date, encoded
     echo json_encode(['convertedDate' => $convertedDate]);
 }
